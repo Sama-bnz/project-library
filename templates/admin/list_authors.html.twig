@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>Voici la liste des Auteurs</title>
+    <a href="{{ path('admin_insert_author')}}">Ajouter un auteur</a>
+
+{% endblock %}
+{% block main %}
+{% for author in authors %}
+<article>
+    <h1>{{ author.firstName }} {{ author.lastName }}</h1>
+    <a href="{{ path('admin_show_author',{'id':author.id}) }}">En savoir plus sur l'écrivain</a>
+    <br>
+    <a href="{{ path ('admin_update_author',{'id':author.id })}}">Voulez-vous modifié les données de cet auteur?? </a>
+
+
+</article>
+
+{% endfor %}
+{% endblock %}

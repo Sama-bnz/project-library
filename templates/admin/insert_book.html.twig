@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    {#    J'utilise la fonction twig form et je lui passe la variable qui contient mon formulaire depuis le controleur ça permet de geneger tout les inputs + label de mon formulaire#}
+    <div class="form-group">
+        {#        {{ form(form) }}#}
+        {{ form_start(form) }}
+
+        {{ form_label(form.title, 'Titre',{'label_attr':{'class': 'form-label' }}) }}
+        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.title) }}
+
+        {{ form_label(form.nbPages, 'Nombre de pages',{'label_attr':{'class': 'form-label'}}) }}
+        {{ form_widget(form.nbPages, {'attr':{'class': 'form-control'}}) }}
+        {{ form_errors(form.nbPages) }}
+
+        {{ form_label(form.author, 'Auteur',{'label_attr':{'class':'form-label'}}) }}
+        {{ form_widget(form.author, {'attr':{'class': 'form-control'}}) }}
+        {{ form_errors(form.author) }}
+
+        {{ form_label(form.publishedAt, 'Date de publication',{'label_attr':{'class':'form-label'}}) }}
+        {{ form_widget(form.publishedAt, {'attr':{'class': 'form-control'}}) }}
+        {{ form_errors(form.publishedAt) }}
+
+        {{ form_widget(form.submit, {'attr':{'class': 'btn btn-primary'}}) }}
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

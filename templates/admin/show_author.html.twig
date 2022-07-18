@@ -6,8 +6,8 @@
 
 {% block main %}
 
-<article class="auteurs">
-    <h1>{{ author.firstName }} {{ author.lastName }}</h1>
+<article class="auteurs_seul">
+    <h1 class="titre">{{ author.firstName }} {{ author.lastName }}</h1>
     <p>Né le {{ author.birthDate|date('Y-m-d') }}</p>
     <a href="{{ path('admin_authors',{'id':author.id}) }}">La liste des auteurs</a>
     <br>

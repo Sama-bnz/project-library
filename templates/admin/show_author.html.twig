@@ -6,9 +6,9 @@
 
 {% block main %}
 
-<article>
+<article class="auteurs">
     <h1>{{ author.firstName }} {{ author.lastName }}</h1>
-{#    <p>{{ author.birthDate }}</p>#}
+    <p>Né le {{ author.birthDate|date('Y-m-d') }}</p>
     <a href="{{ path('admin_authors',{'id':author.id}) }}">La liste des auteurs</a>
     <br>
     <a href="{{ path ('admin_delete_author',{'id':author.id })}}">Voulez-vous supprimé cet auteur? </a>

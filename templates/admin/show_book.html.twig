@@ -8,10 +8,10 @@
 
     <article>
         <h1>{{ book.title }}</h1>
-        {#    <p>{{ author.birthDate }}</p>#}
-        <a href="{{ path('admin_books',{'id':author.id}) }}">La liste des livres</a>
+        <p>Publié le {{ book.publishedAt|date('Y-m-d') }}</p>
+        <a href="{{ path('admin_books',{'id':book.id}) }}">La liste des livres</a>
         <br>
-{#        <a href="{{ path ('admin_delete_author',{'id':author.id })}}">Voulez-vous supprimé ce livre? </a>#}
+        <a href="{{ path ('admin_delete_book',{'id':book.id })}}">Voulez-vous supprimé ce livre? </a>
 
 
 

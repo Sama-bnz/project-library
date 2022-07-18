@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+.header-top {
+    display: flex;
+    justify-content: flex-end;
+    background-color: darkcyan;
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 15px;
+}
+
+.auteurs {
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-wrap: nowrap;
+    border: 2px darkcyan solid;
+    text-align: center;
+}
+.livres{
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-wrap: nowrap;
+    border: 2px darkcyan solid;
+    text-align: center;
+}
+.lien{
+    border: 2px solid darkcyan;
+    color: whitesmoke;
+    background-color: darkcyan;
+}
+.message-success {
+    background-color: green;
+}
+
+.message-error {
+    background-color: red;
+}
+
+
+

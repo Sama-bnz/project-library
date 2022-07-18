@@ -20,6 +20,12 @@ class BookType extends AbstractType
             ->add('nbPages')
             ->add('publishedAt',DateType::class, ['widget' => 'single_text',])
             ->add('author',EntityType::class,['class' => Author::class,'choice_label' => 'last_name',])
+
+            ->add('author',EntityType::class,[
+                'class' => Author::class,
+                'choice_label' =>'firstName',
+                'placeholder' =>'Choisissez votre auteur',
+            ])
             ->add('submit', SubmitType::class);
 
         ;

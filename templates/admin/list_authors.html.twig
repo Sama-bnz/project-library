@@ -8,11 +8,15 @@
 {% block main %}
 {% for author in authors %}
 <article class="auteurs">
-    <h1>{{ author.firstName }} {{ author.lastName }}</h1>
+    <h1 class="titre">{{ author.firstName }} {{ author.lastName }}</h1>
     <p>Né le {{ author.birthDate|date('Y-m-d') }}</p>
     <a class="lien" href="{{ path('admin_show_author',{'id':author.id}) }}">En savoir plus sur l'écrivain</a>
     <br>
-    <a class="lien" href="{{ path ('admin_update_author',{'id':author.id })}}">Voulez-vous modifié les données de cet auteur?? </a>
+    <br>
+    <a class="lien" href="{{ path ('admin_update_author',{'id':author.id })}}">Voulez-vous modifier les données de cet auteur?? </a>
+    <br>
+    <br>
+    <a class="lien" href="{{ path ('admin_delete_author',{'id':author.id })}}">Voulez-vous supprimer cet auteur?? </a>
 
 
 </article>

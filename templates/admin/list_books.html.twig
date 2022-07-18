@@ -8,13 +8,15 @@
 {% block main %}
     {% for book in books %}
         <article class="livres">
-            <h1>{{ book.title }}</h1>
+            <h1 class="titre">{{ book.title }}</h1>
             <p>{{ book.nbPages }}</p>
             <p>Publié le {{ book.publishedAt|date('Y-m-d') }}</p>
             <p>{{ book.author.firstName }} {{ book.author.lastName }}</p>
             <a class="lien" href="{{ path('admin_show_book',{'id':book.id}) }}">En savoir plus sur le livre</a>
             <br>
+            <br>
             <a class="lien" href="{{ path ('admin_update_book',{'id':book.id })}}">Voulez-vous modifié les données de ce livre?? </a>
+            <br>
             <br>
             <a class="lien" href="{{ path ('admin_delete_book',{'id':book.id })}}">Voulez-vous supprimé ce livre? </a>
 

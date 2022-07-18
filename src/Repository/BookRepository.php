@@ -39,7 +39,7 @@ class BookRepository extends ServiceEntityRepository
         }
     }
 
-    //Je créer ma fonction search dans mon Article repository
+    //Je créer ma fonction search dans mon Book repository
     public function searchByWord($search)
     {
         //Le createQueryBuilder est un objet qui permet de créer des requetes SQL en PHP

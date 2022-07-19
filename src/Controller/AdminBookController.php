@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminBookController extends AbstractController
 {
@@ -46,15 +47,15 @@ class AdminBookController extends AbstractController
      * @Route("/admin/insert-book", name="admin_insert_book")
      */
     //L'entity manager traduit en requete SQL
-    public function insertBook(EntityManagerInterface $entityManager, Request $request)
+    public function insertBook(EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger)
     {
 
-        //je créé une instance de la classs book (classe d'entité (celle qui as permis de crée la table))
+        //je créé une instance de la classe book (classe d'entité (celle qui as permis de crée la table))
 //        dans le but de créer un nouvel article de la BDD (table book)
 
         $book = new Book();
 
-//        j'ai utilisé la ligne de cmd php bin/console make:form pour créer une classe symfony qui va contenir le "plan" de formulaire afin de créer les articles. C'est la classe ArticleType
+// j'ai utilisé la ligne de cmd php bin/console make:form pour créer une classe symfony qui va contenir le "plan" de formulaire afin de créer les articles. C'est la classe ArticleType
 
         $form = $this->createForm(BookType::class, $book);
 
@@ -64,7 +65,25 @@ class AdminBookController extends AbstractController
 
         //Si le formulaire à été posté et que les données sont valide
         if ($form->isSubmitted() && $form->isValid()) {
-            //On enregistre l'article dans la BDD
+
+            $image = $form->get('image')->getData();
+            //Je récupere le nom du fichier original
+            $originalFilename = pathinfo($image->getClientOriginalName(),PATHINFO_FILENAME);
+
+            //J'utilise une instance de la classe slugger et sa méthode slug pour supprimer
+            //les caracteres spéciaux
+            $safeFilename = $slugger->slug($originalFilename);
+            //Je rajoute au nom de l'image un identifiant unique
+            $newFileName = $safeFilename.'-'.uniqid().'.'. $image->guessExtension();
+
+            //Je déplace l'image dans le dossier public et je la renomme avec le nouveau nom crée
+            $image->move(
+                $this->getParameter('images_directory'),
+                $newFileName
+            );
+            $book->setImage($newFileName);
+
+            //On enregistre le book dans la BDD
             $entityManager->persist($book);
             $entityManager->flush();
 
@@ -106,12 +125,12 @@ class AdminBookController extends AbstractController
     /**
      * @Route("/admin/book/update/{id}", name="admin_update_book")
      */
-    public function updateBook($id, BookRepository $bookRepository, EntityManagerInterface $entityManager, Request $request)
+    public function updateBook($id, BookRepository $bookRepository, EntityManagerInterface $entityManager, Request $request, SluggerInterface $slugger)
     {
-        //Avec le repository je selectionne un article en fonction de l'ID
+        //Avec le repository je selectionne un book en fonction de l'ID
         $book = $bookRepository->find($id);
 
-//        j'ai utilisé la ligne de cmd php bin/console make:form pour créer une classe symfony qui va contenir le "plan" de formulaire afin de créer les articles. C'est la classe ArticleType
+//        j'ai utilisé la ligne de cmd php bin/console make:form pour créer une classe symfony qui va contenir le "plan" de formulaire afin de créer les articles. C'est la classe BookType
 
         $form = $this->createForm(BookType::class, $book);
 
@@ -121,7 +140,24 @@ class AdminBookController extends AbstractController
 
         //Si le formulaire à été posté et que les données sont valide
         if ($form->isSubmitted() && $form->isValid()) {
-            //On enregistre l'article dans la BDD
+
+            $image = $form->get('image')->getData();
+            //Je récupere le nom du fichier original
+            $originalFilename = pathinfo($image->getClientOriginalName(),PATHINFO_FILENAME);
+
+            //J'utilise une instance de la classe slugger et sa méthode slug pour supprimer
+            //les caracteres spéciaux
+            $safeFilename = $slugger->slug($originalFilename);
+            //Je rajoute au nom de l'image un identifiant unique
+            $newFileName = $safeFilename.'-'.uniqid().'.'. $image->guessExtension();
+
+            //Je déplace l'image dans le dossier public et je la renomme avec le nouveau nom crée
+            $image->move(
+                $this->getParameter('images_directory'),
+                $newFileName
+            );
+            $book->setImage($newFileName);
+            //On enregistre le book dans la BDD
             $entityManager->persist($book);
             $entityManager->flush();
 
@@ -131,7 +167,8 @@ class AdminBookController extends AbstractController
         //j'affiche mon twig en lui passant une variable form qui contient la view du formulaire
 
         return $this->render("admin/insert_book.html.twig", [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'book' => $book
         ]);
     }
 
@@ -139,14 +176,14 @@ class AdminBookController extends AbstractController
 
 
     /**
-     * Je créer une route search avec une fonction qui permettra de rechercher un article présent dans la liste des articles
+     * Je créer une route search avec une fonction qui permettra de rechercher un book présent dans la liste des books
      * @Route("/admin/search/books", name="admin_search_books")
      */
     public function searchBooks(Request $request, BookRepository $bookRepository)
     {
         //Je récupère la valeur du formulaire avec ma nouvelle variable $search
         $search = $request->query->get('search');
-        //Je vais créer une méthode dans ArticleRepository qui va permettre de trouver un article en fonction de son titre ou de son contenu
+        //Je vais créer une méthode dans BookRepository qui va permettre de trouver un article en fonction de son titre ou de son contenu
         $books = $bookRepository->searchByWord($search);
 
         //Je renvoie vers le fichier twig afin d'afficher les articles trouvés

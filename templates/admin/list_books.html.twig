@@ -2,12 +2,14 @@
 
 {% block title %}
     <title>La liste des oeuvres</title>
-    <a href="{{ path('admin_insert_book')}}">Ajouter un livre</a>
 {% endblock %}
 
 {% block main %}
+    <a href="{{ path('admin_insert_book')}}">Ajouter un livre</a>
+
     {% for book in books %}
         <article class="livres">
+            <img class="book-img" src="{{ asset('uploads/images/'~ book.image) }}" alt="book image">
             <h1 class="titre">{{ book.title }}</h1>
             <p>{{ book.nbPages }}</p>
             <p>Publié le {{ book.publishedAt|date('Y-m-d') }}</p>
@@ -20,10 +22,7 @@
             <br>
             <a class="lien" href="{{ path ('admin_delete_book',{'id':book.id })}}">Voulez-vous supprimé ce livre? </a>
 
-
-
         </article>
-
     {% endfor %}
 {% endblock %}
 

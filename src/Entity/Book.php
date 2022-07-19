@@ -42,6 +42,11 @@ class Book
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -94,4 +99,21 @@ class Book
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+
 }

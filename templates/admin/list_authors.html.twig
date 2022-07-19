@@ -2,11 +2,11 @@
 
 {% block title %}
     <title>Voici la liste des Auteurs</title>
-    <a href="{{ path('admin_insert_author')}}">Ajouter un auteur</a>
-
 {% endblock %}
+
 {% block main %}
-{% for author in authors %}
+    <a href="{{ path('admin_insert_author')}}">Ajouter un auteur</a>
+    {% for author in authors %}
 <article class="auteurs">
     <h1 class="titre">{{ author.firstName }} {{ author.lastName }}</h1>
     <p>Né le {{ author.birthDate|date('Y-m-d') }}</p>

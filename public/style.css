@@ -1,66 +1,73 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-.titre{
-    color: darkblue;
+
+.titre {
+  color: darkblue;
 }
-.book-img{
-    width: 10%;
+
+.book-img {
+  width: 10%;
 }
+
 .header-top {
-    display: flex;
-    justify-content: flex-end;
-    background-color: darkcyan;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(26, 165, 139, 0.4);
 }
 
 .nav-items {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 15px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 15px;
 }
 
 .auteurs {
-    display: block;
-    margin-left: 10%;
-    margin-right: 10%;
-    flex-wrap: nowrap;
-    border: 2px darkcyan solid;
-    text-align: center;
+  display: block;
+  margin-left: 10%;
+  margin-right: 10%;
+  flex-wrap: nowrap;
+  border: 2px darkcyan solid;
+  text-align: center;
 }
-.auteurs_seul{
-    display: block;
-    margin-left: 10%;
-    margin-right: 10%;
-    flex-wrap: nowrap;
-    border: 2px darkred solid;
-    text-align: center;
+
+.auteurs_seul {
+  display: block;
+  margin-left: 10%;
+  margin-right: 10%;
+  flex-wrap: nowrap;
+  border: 2px darkred solid;
+  text-align: center;
 }
-.livres{
-    display: block;
-    margin-left: 10%;
-    margin-right: 10%;
-    flex-wrap: nowrap;
-    border: 2px darkcyan solid;
-    text-align: center;
+
+.livres {
+  display: block;
+  margin-left: 10%;
+  margin-right: 10%;
+  flex-wrap: nowrap;
+  border: 2px darkcyan solid;
+  text-align: center;
 }
-.lien{
-    border: 2px solid darkcyan;
-    color: whitesmoke;
-    background-color: darkcyan;
+
+.lien {
+  border: 2px solid darkcyan;
+  color: whitesmoke;
+  background-color: darkcyan;
 }
-.lien:hover{
-    background-color: whitesmoke;
-    text-decoration: none;
-    color: darkcyan;
+
+.lien:hover {
+  background-color: whitesmoke;
+  text-decoration: none;
+  color: darkcyan;
 }
+
 .message-success {
-    background-color: green;
+  background-color: green;
 }
 
 .message-error {
-    background-color: red;
+  background-color: red;
 }
 
-
-
+/*# sourceMappingURL=style.css.map */

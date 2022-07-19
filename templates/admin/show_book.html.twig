@@ -7,6 +7,7 @@
 {% block main %}
 
     <article class="auteurs_seul">
+        <img src="{{ asset('uploads/images/'~ book.image) }}" alt="book image">
         <h1 class="titre">{{ book.title }}</h1>
         <p>Publié le {{ book.publishedAt|date('Y-m-d') }}</p>
         <a href="{{ path('admin_books',{'id':book.id}) }}">La liste des livres</a>

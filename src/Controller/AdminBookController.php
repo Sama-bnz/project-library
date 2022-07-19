@@ -166,7 +166,7 @@ class AdminBookController extends AbstractController
 
         //j'affiche mon twig en lui passant une variable form qui contient la view du formulaire
 
-        return $this->render("admin/insert_book.html.twig", [
+        return $this->render("admin/update_book.html.twig", [
             'form' => $form->createView(),
             'book' => $book
         ]);

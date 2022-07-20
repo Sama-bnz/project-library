@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% block title %}
         <title>Acceuil</title>
@@ -14,13 +14,24 @@
 <body>
 
 <header class="header-top">
-</header>
+    <p>Bonjour à toi {{ app.user.email }}</p>
 
 <ul class="nav-items">
     <li class="nav-items"><a href="{{ path ('home')}}">Accueil</a></li>
-    <li class="nav-items"><a href="{{ path ('front_books')}}">Liste des livres</a></li>
-    <li class="nav-items"><a href="{{ path ('front_authors')}}">Liste des auteurs</a></li>
+    <li class="nav-items"><a href="{{ path ('admin_books')}}">Liste des livres</a></li>
+    <li class="nav-items"><a href="{{ path ('admin_authors')}}">Liste des auteurs</a></li>
+    <li class="nav-items"><a href="{{ path ('app_logout')}}">Deconnexion</a></li>
 </ul>
+</header>
+
+
+{% for message in app.flashes('success') %}
+    <p class="message-success">{{ message }}</p>
+{% endfor %}
+
+{% for message in app.flashes('error') %}
+    <p class="message-error">{{ message }}</p>
+{% endfor %}
 <main>
 
     {% block main %}

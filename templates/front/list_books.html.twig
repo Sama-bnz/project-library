@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>La liste des oeuvres</title>
+{% endblock %}
+
+{% block main %}
+    {% for book in books %}
+        <article class="livres">
+            <img class="book-img" src="{{ asset('uploads/images/'~ book.image) }}" alt="book image">
+            <h1 class="titre">{{ book.title }}</h1>
+            <p>{{ book.nbPages }}</p>
+            <p>Publié le {{ book.publishedAt|date('Y-m-d') }}</p>
+            <p>{{ book.author.firstName }} {{ book.author.lastName }}</p>
+            <a class="lien" href="{{ path('front_show_book',{'id':book.id}) }}">En savoir plus sur le livre</a>
+        </article>
+    {% endfor %}
+{% endblock %}

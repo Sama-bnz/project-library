@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
 use App\Entity\Book;
-use App\Form\AuthorType;
 use App\Form\BookType;
-use App\Repository\BookRepository;
 use App\Repository\AuthorRepository;
+use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 

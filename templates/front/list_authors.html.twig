@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>Voici la liste des Auteurs</title>
+{% endblock %}
+
+{% block main %}
+    {% for author in authors %}
+        <article class="auteurs">
+            <h1 class="titre">{{ author.firstName }} {{ author.lastName }}</h1>
+            <p>Né le {{ author.birthDate|date('Y-m-d') }}</p>
+            <a class="lien" href="{{ path('front_show_author',{'id':author.id}) }}">En savoir plus sur l'écrivain</a>
+
+        </article>
+
+    {% endfor %}
+{% endblock %}

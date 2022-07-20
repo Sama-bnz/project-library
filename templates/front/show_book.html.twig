@@ -1,4 +1,4 @@
-{% extends 'admin/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}
     <title>{{ book.title }}</title>
@@ -10,10 +10,7 @@
         <img src="{{ asset('uploads/images/'~ book.image) }}" alt="book image">
         <h1 class="titre">{{ book.title }}</h1>
         <p>Publié le {{ book.publishedAt|date('Y-m-d') }}</p>
-        <a href="{{ path('admin_books',{'id':book.id}) }}">La liste des livres</a>
-        <br>
-        <a href="{{ path ('admin_delete_book',{'id':book.id })}}">Voulez-vous supprimé ce livre? </a>
-
+        <a href="{{ path('front_books',{'id':book.id}) }}">La liste des livres</a>
 
 
     </article>

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\admin;
 
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
 class AdminHomeController extends AbstractController
 {

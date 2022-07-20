@@ -24,6 +24,10 @@
     <li class="nav-items"><a href="{{ path ('home')}}">Accueil</a></li>
     <li class="nav-items"><a href="{{ path ('admin_books')}}">Liste des livres</a></li>
     <li class="nav-items"><a href="{{ path ('admin_authors')}}">Liste des auteurs</a></li>
+    <li class="nav-items"><a href="{{ path ('app_login')}}">Connexion</a></li>
+    <li class="nav-items"><a href="{{ path ('app_logout')}}">Deconnexion</a></li>
+
+
 </ul>
 {% for message in app.flashes('success') %}
     <p class="message-success">{{ message }}</p>

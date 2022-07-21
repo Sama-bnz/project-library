@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 </head>
-<body>
+<body class="js-body">
 
 <header class="header-top">
 </header>
@@ -23,6 +23,8 @@
     <li class="nav-items"><a href="{{ path ('app_login')}}">Connexion</a></li>
 
 </ul>
+<button class="js-night-toggle">Dark Sasuke Mod</button>
+
 <main>
 
     {% block main %}
@@ -34,7 +36,8 @@
     {% endblock %}
 </footer>
 {% block js %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 {% endblock %}
 </body>
 </html>

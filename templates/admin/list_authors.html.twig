@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block main %}
+    <body>
     <a href="{{ path('admin_insert_author')}}">Ajouter un auteur</a>
     {% for author in authors %}
 <article class="auteurs">
@@ -20,6 +21,6 @@
 
 
 </article>
-
+</body>
 {% endfor %}
 {% endblock %}

@@ -4,8 +4,8 @@
         <section>
 {#            Pour chaque admin parmis les admins#}
             {% for admin in admins %}
-            <article>
-                <h2>{{ admin.email }}</h2>
+            <article class="auteurs">
+                <h2 class="titre">{{ admin.email }}</h2>
                 <div>
                     {% for role in admin.roles %}
                     <span>{{ role }} | </span>
@@ -16,6 +16,6 @@
         </section>
     <div>
 {#        Liens pour la création d'un nouvel admin#}
-        <a href="{{ path('admin_create_admin') }}" class="btn bg-info">Créer un admin</a>
+        <a class="lien" href="{{ path('admin_create_admin') }}">Créer un admin</a>
     </div>
 {% endblock %}

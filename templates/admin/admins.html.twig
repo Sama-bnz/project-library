@@ -2,6 +2,7 @@
 
 {% block main %}
         <section>
+{#            Pour chaque admin parmis les admins#}
             {% for admin in admins %}
             <article>
                 <h2>{{ admin.email }}</h2>
@@ -14,6 +15,7 @@
             {% endfor %}
         </section>
     <div>
+{#        Liens pour la création d'un nouvel admin#}
         <a href="{{ path('admin_create_admin') }}" class="btn bg-info">Créer un admin</a>
     </div>
 {% endblock %}

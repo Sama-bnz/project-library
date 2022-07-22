@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 </head>
 <body>
+{#<div class="burger-menu">#}
+
+
 
 <header class="header-top">
     <p>Bonjour à toi {{ app.user.email }}</p>
@@ -25,7 +28,7 @@
 
 </ul>
 </header>
-
+{#</div>#}
 
 {% for message in app.flashes('success') %}
     <p class="message-success">{{ message }}</p>

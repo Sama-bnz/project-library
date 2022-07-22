@@ -11,21 +11,36 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 </head>
-<body class="js-body">
 
-<header class="header-top">
-</header>
-
+<nav class="header-top">
 <ul class="nav-items">
     <li class="nav-items"><a href="{{ path ('home')}}">Accueil</a></li>
     <li class="nav-items"><a href="{{ path ('front_books')}}">Liste des livres</a></li>
     <li class="nav-items"><a href="{{ path ('front_authors')}}">Liste des auteurs</a></li>
     <li class="nav-items"><a href="{{ path ('app_login')}}">Connexion</a></li>
-
 </ul>
+</nav>
+
+<button type="button" aria-label="toggle burger navigation" class="nav-toggler">
+<span class="line l1"></span>
+<span class="line l2"></span>
+<span class="line l3"></span>
+</button>
+
+
+<nav class="secondNav">
+    <a href="">Acceuil</a>
+    <a href="">Liste des livres</a>
+    <a href="">Liste des auteurs</a>
+    <a href="">Connexion</a>
+</nav>
+
+
+<body class="js-body">
+
 <button class="js-night-toggle">Dark Sasuke Mod</button>
-<button class="js-kawaï-toggle">Sakura Mod</button>
-<button class="js-hero-toggle">Naruto Mod</button>
+{#<button class="js-kawaï-toggle">Sakura Mod</button>#}
+{#<button class="js-hero-toggle">Naruto Mod</button>#}
 
 
 <main>
